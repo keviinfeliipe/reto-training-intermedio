@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QuestionI } from '../../models/question-i';
 import { AuthService } from '../../services/authentication.service';
 import { QuestionService } from '../../services/question.service';
@@ -13,8 +13,6 @@ import { Router } from '@angular/router';
 })
 export class CreateQuestionComponent implements OnInit {
 
-
-  modalReference: NgbModalRef | undefined;
 
   question: QuestionI = {
     id: this.authService.userData.uid,
@@ -30,7 +28,7 @@ export class CreateQuestionComponent implements OnInit {
     private authService: AuthService,
     private services: QuestionService,
     private toastr: ToastrService,
-    private route:Router
+    private route: Router
   ) { }
 
   ngOnInit(): void {
@@ -46,10 +44,10 @@ export class CreateQuestionComponent implements OnInit {
       next: (v) => {
         this.route.navigate(['home'])
         this.toastr.success('Se ha agregado la pregunta', 'OK', {
-        timeOut: 3000,
-      })
+          timeOut: 3000,
+        })
 
-    },
+      },
       error: (e) => this.toastr.error(e.mesaje, 'Fail', {
         timeOut: 3000
       }),

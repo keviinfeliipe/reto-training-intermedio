@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuestionComponent } from './shared/pages/question/question.component';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { CreateAnswerComponent } from './shared/pages/create-answer/create-answer.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
     FooterComponent,
     HeaderComponent,
     CreateQuestionComponent,
-    QuestionComponent
+    QuestionComponent,
+    CreateAnswerComponent,
 
   ],
   imports: [

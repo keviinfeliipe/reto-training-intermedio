@@ -1,7 +1,6 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Realiza tu pregunta</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
@@ -9,7 +8,7 @@
     <div class="container">
       <div class="card text-center">
         <div class="card-header">
-          <b>Pregunta</b>
+          <b>Realiza tu pregunta</b>
         </div>
         <div class="card-body p-4">
           <input id="type" class="form-control m-2" type="text" placeholder="ingrese el tipo de pregunta" name="type" [(ngModel)]="question.type" required/>

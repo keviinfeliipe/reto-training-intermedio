@@ -8,6 +8,7 @@ import { FooterComponent } from './shared/pages/footer/footer.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CreateQuestionComponent } from './shared/pages/create-question/create-question.component';
 import { QuestionComponent } from './shared/pages/question/question.component';
+import { CreateAnswerComponent } from './shared/pages/create-answer/create-answer.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'footer', component: FooterComponent},
   {path: 'heater', component: HttpErrorResponse},
   {path: 'question/:id', component: QuestionComponent},
+  {path: 'createAnswer', component: CreateAnswerComponent},
   {path: '**', pathMatch: 'full', redirectTo:'home'}
 ];
 

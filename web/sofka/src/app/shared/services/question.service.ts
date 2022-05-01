@@ -3,10 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { QuestionI } from '../models/question-i';
+import { AnswerI } from '../models/answer-i';
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
+  push(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
 
   private url: string = "http://localhost:8080/";
 
@@ -39,5 +43,9 @@ export class QuestionService {
     return this.http.post<any>(direction, question, { responseType: 'text' as 'json' });
   }
 
+  saveAnswer(answer: AnswerI): Observable<any> {
+    let direction = this.url + "add";
+    return this.http.post<any>(direction, answer);
+  }
 
 }
