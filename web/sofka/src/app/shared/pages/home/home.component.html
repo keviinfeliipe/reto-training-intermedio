@@ -1,5 +1,18 @@
 <app-header></app-header>
 
+
+<div class="summary-questions container-lg">
+  <div>
+    <p class="text-start fs-1 mb-1 ">Todas las preguntas</p>
+    <p class="text-start fs-4">{{totalQuestions}} Preguntas</p>
+  </div>
+  <div class="text-end" *ngIf="authService.userData as user">
+    <app-create-question></app-create-question>
+  </div>
+  <div class="text-end fs-5" *ngIf="!authService.userData">
+    <p>Para agregar una pregunta debes estar logeado</p>
+  </div>
+</div>
 <div class="container">
   <div class="question" *ngFor="let question of questions">
     <div class="card mb-3 h-200">
@@ -38,7 +51,8 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="page-item" *ngFor="let page of pages; let i = index"><a class="page-link" (click)="getPage(i)">{{i+1}}</a>
+    <li class="page-item" *ngFor="let page of pages; let i = index"><a class="page-link"
+        (click)="getPage(i)">{{i+1}}</a>
     </li>
     <li class="page-item">
       <a class="page-link" (click)="nextPage()" aria-label="Next">

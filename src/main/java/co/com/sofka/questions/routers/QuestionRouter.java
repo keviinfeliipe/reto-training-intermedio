@@ -35,8 +35,13 @@ public class QuestionRouter {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> countRegister(QuestionHandler handler){
-        return route(GET("/totalPages").and(accept(MediaType.APPLICATION_JSON)),handler::countRegister);
+    public RouterFunction<ServerResponse> totalPages(QuestionHandler handler){
+        return route(GET("/totalPages").and(accept(MediaType.APPLICATION_JSON)),handler::totalPages);
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> countQuestions(QuestionHandler handler){
+        return route(GET("/countQuestions").and(accept(MediaType.APPLICATION_JSON)),handler::countQuestions);
     }
 
     @Bean

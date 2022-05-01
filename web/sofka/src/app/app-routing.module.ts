@@ -6,12 +6,15 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ResetAccountComponent } from './auth/reset-account/reset-account.component';
 import { FooterComponent } from './shared/pages/footer/footer.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CreateQuestionComponent } from './shared/pages/create-question/create-question.component';
+
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
   {path: 'restAccount', component: ResetAccountComponent},
+  {path: 'createQuestion', component: CreateQuestionComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'heater', component: HttpErrorResponse},
   {path: '**', pathMatch: 'full', redirectTo:'home'}

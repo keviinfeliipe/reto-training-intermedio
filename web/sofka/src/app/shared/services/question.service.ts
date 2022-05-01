@@ -16,13 +16,24 @@ export class QuestionService {
   }
 
   getPage(page:number):Observable<QuestionI[]>{
-    let direccion = this.url + "pagination/"+page;
-    return this.http.get<QuestionI[]>(direccion);
+    let direction = this.url + "pagination/"+page;
+    return this.http.get<QuestionI[]>(direction);
   }
 
-  getCountRegister():Observable<number>{
-    let direccion = this.url + "totalPages";
-    return this.http.get<number>(direccion);
+  getTotalPages():Observable<number>{
+    let direction = this.url + "totalPages";
+    return this.http.get<number>(direction);
   }
+
+  getCountQuestions():Observable<number>{
+    let direction = this.url + "countQuestions";
+    return this.http.get<number>(direction);
+  }
+
+  saveQuestion(question:QuestionI):void{
+    let direction = this.url + "create";
+    this.http.post<QuestionI>(direction,question);
+  }
+
 
 }

@@ -23,6 +23,10 @@ import { ResetAccountComponent } from '../app/auth//reset-account/reset-account.
 import { HomeComponent } from '../app/shared/pages/home/home.component';
 import { FooterComponent } from './shared/pages/footer/footer.component';
 import { HeaderComponent } from './shared/pages/header/header.component';
+import { CreateQuestionComponent } from './shared/pages/create-question/create-question.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 @NgModule({
@@ -34,6 +38,8 @@ import { HeaderComponent } from './shared/pages/header/header.component';
     ResetAccountComponent,
     FooterComponent,
     HeaderComponent,
+    CreateQuestionComponent
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,8 @@ import { HeaderComponent } from './shared/pages/header/header.component';
     AngularFireDatabaseModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

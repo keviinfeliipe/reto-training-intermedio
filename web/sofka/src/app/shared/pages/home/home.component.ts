@@ -11,7 +11,7 @@ import { AuthService } from '../../services/authentication.service'
 })
 export class HomeComponent implements OnInit {
 
-  totalRegister:number | undefined;
+  totalQuestions:number | undefined;
   questions:QuestionI[] | undefined;
   user: any | undefined;
   page:number = 0;
@@ -30,8 +30,11 @@ export class HomeComponent implements OnInit {
     this.service.getPage(this.page).subscribe(data=>{
       this.questions=data;
     });
-    this.service.getCountRegister().subscribe(
+    this.service.getTotalPages().subscribe(
       data=>this.pages=new Array(data)
+    );
+    this.service.getCountQuestions().subscribe(
+      data=>this.totalQuestions=data
     );
 
   }
