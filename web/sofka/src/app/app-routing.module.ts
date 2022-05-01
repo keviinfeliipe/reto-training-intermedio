@@ -7,6 +7,7 @@ import { ResetAccountComponent } from './auth/reset-account/reset-account.compon
 import { FooterComponent } from './shared/pages/footer/footer.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CreateQuestionComponent } from './shared/pages/create-question/create-question.component';
+import { QuestionComponent } from './shared/pages/question/question.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'createQuestion', component: CreateQuestionComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'heater', component: HttpErrorResponse},
+  {path: 'question/:id', component: QuestionComponent},
   {path: '**', pathMatch: 'full', redirectTo:'home'}
 ];
 

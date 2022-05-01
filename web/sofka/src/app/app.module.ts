@@ -25,9 +25,10 @@ import { FooterComponent } from './shared/pages/footer/footer.component';
 import { HeaderComponent } from './shared/pages/header/header.component';
 import { CreateQuestionComponent } from './shared/pages/create-question/create-question.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuestionComponent } from './shared/pages/question/question.component';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ResetAccountComponent,
     FooterComponent,
     HeaderComponent,
-    CreateQuestionComponent
+    CreateQuestionComponent,
+    QuestionComponent
 
   ],
   imports: [
@@ -52,7 +54,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    InfiniteScrollModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
