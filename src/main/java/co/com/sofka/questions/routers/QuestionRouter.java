@@ -1,5 +1,6 @@
 package co.com.sofka.questions.routers;
 
+import co.com.sofka.questions.handler.QuestionHandler;
 import co.com.sofka.questions.model.AnswerDTO;
 import co.com.sofka.questions.model.QuestionDTO;
 import co.com.sofka.questions.usecases.*;
@@ -26,6 +27,16 @@ public class QuestionRouter {
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(listUseCase.get(), QuestionDTO.class))
         );
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> pagination(QuestionHandler handler){
+        return route(GET("/pagination/{page}").and(accept(MediaType.APPLICATION_JSON)), handler::paginable);
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> countRegister(QuestionHandler handler){
+        return route(GET("/totalPages").and(accept(MediaType.APPLICATION_JSON)),handler::countRegister);
     }
 
     @Bean

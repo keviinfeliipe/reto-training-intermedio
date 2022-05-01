@@ -3,6 +3,7 @@ package co.com.sofka.questions.handler;
 import co.com.sofka.questions.model.PageDTO;
 import co.com.sofka.questions.model.QuestionDTO;
 import co.com.sofka.questions.usecases.PaginationUseCase;
+import co.com.sofka.questions.usecases.TotalPagesUseCase;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -13,9 +14,11 @@ import reactor.core.publisher.Mono;
 @Component
 public class QuestionHandler {
     private final PaginationUseCase paginationUseCase;
+    private final TotalPagesUseCase totalPagesUseCase;
 
-    public QuestionHandler(PaginationUseCase paginationUseCase) {
+    public QuestionHandler(PaginationUseCase paginationUseCase, TotalPagesUseCase totalPagesUseCase) {
         this.paginationUseCase = paginationUseCase;
+        this.totalPagesUseCase = totalPagesUseCase;
     }
 
     public Mono<ServerResponse> paginable(ServerRequest request){
@@ -26,5 +29,12 @@ public class QuestionHandler {
                 .body(BodyInserters.fromPublisher(paginationUseCase.apply(
                         new PageDTO(Integer.parseInt(request.pathVariable("page")))
                 ), QuestionDTO.class));
+    }
+
+    public Mono<ServerResponse> countRegister(ServerRequest request){
+        return ServerResponse
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(BodyInserters.fromPublisher(totalPagesUseCase.get(),Long.class));
     }
 }
