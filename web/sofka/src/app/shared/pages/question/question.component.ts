@@ -15,7 +15,9 @@ export class QuestionComponent implements OnInit {
 
 
   question:QuestionI | undefined;
-  private answers: AnswerI[] | undefined;
+  answers: AnswerI[] | undefined;
+  answersNew: AnswerI[]=[];
+  currentAnswer:number=0;
 
   constructor(
     private route:ActivatedRoute,
@@ -29,24 +31,32 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.id=`${id}`;
     this.getQuestions(`${id}`);
-    //this.AddAnwsers(0);
+    //this.AddAnwsers(((this.currentAnswer+10)>this.answers?.length)?10:(this.answers.length-this.currentAnswer));
   }
 
   getQuestions(id:string):void{
     this.questionService.getQuestion(id).subscribe(data=>{
       this.question=data;
+      this.answers = data.answers;
     })
+
   }
 
   AddAnwsers(index:number) {
-    let counter=index;
-    while(counter<(index+10)){
-      console.log(counter);
-      //this.answers?.push(this.question?.answers[index]);
-      counter++;
+    let last=this.currentAnswer+index;
+    console.log("actual:",this.currentAnswer)
+    console.log(this.question?.answers[0]);
+    for(let i = this.currentAnswer;i<last;i++){
+      console.log(i);
+      //this.answersNew.push(this.answers[i]);
     }
+    this.currentAnswer+=10;
+    console.log("actual:",this.currentAnswer)
+  }
+
+  onScroll() {
+
   }
 
 }

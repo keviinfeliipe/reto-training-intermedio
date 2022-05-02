@@ -7,16 +7,16 @@
     <div class="container">
       <div class="card text-center">
         <div class="card-header">
-          <b>Realiza tu pregunta</b>
+          <b>Envia tu respuesta</b>
         </div>
         <div class="card-body p-4">
           <div class="form-floating">
             <textarea class="form-control m-2" placeholder="Leave a comment here" id="question" style="height: 150px"
               [(ngModel)]="answer.answer"></textarea>
-            <label for="floatingTextarea">Pregunta</label>
+            <label for="floatingTextarea">Respuesta</label>
           </div>
           <button style="width: 100%;" class="btn btn-primary btn-lg btn-block m-2"
-            (click)="saveAnswer()">Realizar pregunta</button>
+            (click)="saveAnswer()">Enviar respuesta</button>
           <hr>
         </div>
       </div>

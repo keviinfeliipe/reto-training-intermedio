@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
     this.service.getCountQuestions().subscribe(
       data=>this.totalQuestions=data
     );
-
   }
 
 
